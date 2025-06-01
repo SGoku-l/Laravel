@@ -65,5 +65,3 @@ Route::get('print_pdf/{id}',[AdminController::class,'print_pdf'])->middleware(['
 Route::get('razorpay-payment/{value}', [HomeController::class, 'indexx']);
 
 Route::post('razorpay-payment/{value}', [HomeController::class, 'store'])->name('razorpay.payment.store');
-
-Route::view('kgiri','kgiri');

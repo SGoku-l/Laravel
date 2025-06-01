@@ -15,18 +15,6 @@
         <h3 class="card-header p-3">Laravel 11 Razorpay Payment Gateway Integration </h3>
         <div class="card-body">
 
-            @session('error')
-                <div class="alert alert-danger" role="alert"> 
-                    {{ $value }}
-                </div>
-            @endsession
-
-            @session('success')
-                <div class="alert alert-success" role="alert"> 
-                    {{ $value }}
-                </div>
-            @endsession
-
             <form action="{{ route('razorpay.payment.store',$value) }}" method="POST" class="text-center">
                 @csrf
                 <script src="https://checkout.razorpay.com/v1/checkout.js"

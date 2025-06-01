@@ -153,7 +153,9 @@ class HomeController extends Controller
     }
 
      public function indexx($value)
-    {        
+    {   
+        session()->forget('payment_done');
+
         return view('home.razorpay',compact('value'));
     }
 
@@ -227,6 +229,8 @@ class HomeController extends Controller
             $delete->delete();
 
         }
+
+        session()->put('payment_done',true);
 
         return redirect('mycart') ->with('success', 'Payment successful');
     }
