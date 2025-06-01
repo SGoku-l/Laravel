@@ -24,8 +24,9 @@
                         data-name="WMP Creative Agency"
                         data-description="Test Pay"
                         data-image="https://www.itsolutionstuff.com/frontTheme/images/logo.png"
-                        data-prefill.name="name"
-                        data-prefill.email="email"
+                        data-prefill.name="{{ Auth::user()->name }}"
+                        data-prefill.email="{{ Auth::user()->email }}"
+                        data-prefill.contact="{{ Auth::user()->phone }}"
                         data-theme.color="#ff7529">
                 </script>
             </form>

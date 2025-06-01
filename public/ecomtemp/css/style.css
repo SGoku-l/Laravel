@@ -3,7 +3,7 @@
 body {
   font-family: "poppins", sans-serif;
   color: #101010;
-  background-color: #ffffff;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 }
 
 .layout_padding {
@@ -854,3 +854,139 @@ a:focus {
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
+
+
+.ark-header {
+  background: rgba(15, 15, 15, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.ark-navbar .nav-link {
+  color: #fff;
+  font-weight: 500;
+  margin-right: 15px;
+  transition: all 0.3s ease;
+}
+
+.ark-navbar .nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 5px 10px;
+  border: 1px solid white;
+}
+
+.ark-logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.ark-user-options .btn {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.ark-user-options .btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #000;
+  border-color: white;
+}
+
+.ark-search-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+
+.ark-footer-container {
+  background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+
+/* Frosted Glass Box (default) */
+.ark-glassy-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+/* On Hover: Strong White Border */
+.ark-glassy-box:hover {
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+}
+
+/* Footer Bottom */
+.ark-footer-bottom {
+  background: #0d0d0d;
+}
+
+/* Social Icons */
+.ark-social-icons a {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 50%;
+  color: #fff;
+  transition: 0.3s;
+}
+.ark-social-icons a:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+
+.ark-shop-section {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+   padding: 60px 0;
+}
+
+.ark-product-box {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.ark-product-box:hover {
+  border: 2px solid white;
+}
+
+.ark-product-box img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.ark-product-box img:hover {
+  transform: scale(1.05);
+}
+
+.ark-btn-group a {
+  text-decoration: none;
+}
+

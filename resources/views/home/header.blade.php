@@ -14,7 +14,7 @@
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
   <title>
-    Giftos
+   E-Comm
   </title>
 
   <!-- slider stylesheet -->
@@ -29,82 +29,48 @@
   <link href="{{ asset('ecomtemp/css/responsive.css') }}" rel="stylesheet" />
 </head>
 
-<body>
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="index.html">
-          <span>
-            Giftos
-          </span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav  ">
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="shop.html">
-                Shop
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="why.html">
-                Why Us
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonial.html">
-                Testimonial
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
-            </li>
-          </ul>
-          <div class="user_option">
-            @if(Route::has('login'))
+<header class="ark-header">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg ark-navbar">
+      <a class="navbar-brand ark-logo" href="{{ url('/') }}">E-Comm</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#arkNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="arkNav">
+        <ul class="navbar-nav ml-auto ark-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/') }}">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="why.html">Why Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonial.html">Testimonial</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="ark-user-options ml-auto">
+          @if(Route::has('login'))
             @auth
-
-            <form action="{{ route('logout') }}" method="post"> 
-                    @csrf
-                <button class="nav-link" id="logout" style="border: none; background: none; color: black;"><i class="fa fa-user" aria-hidden="true"></i> Logout</button>       
-                </form>
-            <a href="{{ url('mycart') }}">
-             Cart <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-              {{ $count ." Products"}}
-            </a>
+              <form action="{{ route('logout') }}" method="post" class="d-inline">
+                @csrf
+                <button class="btn ark-btn-outline-light">Logout</button>
+              </form>
+              <a href="{{ url('mycart') }}" class="btn ark-btn-light">
+                Cart <i class="fa fa-shopping-bag"></i> {{ $count }} Products
+              </a>
             @else
-
-            <a href="{{ url('/login') }}">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              <span>
-                Login
-              </span>
-            </a>
-            <a href="{{ url('/register') }}">
-              <i class="fa fa-vcard" aria-hidden="true"></i>
-              <span>
-                Register
-              </span>
-            </a>
-            
+              <a href="{{ url('/login') }}" class="btn ark-btn-light">Login</a>
+              <a href="{{ url('/register') }}" class="btn ark-btn-light">Register</a>
             @endauth
-            @endif
-          
-            <form class="form-inline ">
-              <button class="btn nav_search-btn" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </form>
-          </div>
+          @endif
+
+          <form class="form-inline d-inline-block">
+            <button class="ark-search-btn" type="submit"><i class="fa fa-search"></i></button>
+          </form>
         </div>
-      </nav>
-    </header>
-    <!-- end header section -->
+      </div>
+    </nav>
+  </div>
+</header>
+

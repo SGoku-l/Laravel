@@ -1,147 +1,124 @@
-@include ('home.header')
+@include('home.header')
 
-  <!-- shop section -->
+<section class="ark-cart-section py-5">
+  <div class="container ark-glassy-container">
+    <div class="row justify-content-center">
+      <!-- Center: Cart Products -->
+      <div class="col-md-7">
+        <h4 class="text-center mb-4 text-white">Your Cart</h4>
 
-  <section class="shop_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
+        @php $value = 0; @endphp
 
-      
-            <table class="table table-success">
-            
-            <tr>
-                <th>P.Id</th>
-                <th>Product name</th>
-                <th> Decription</th>
-                <th>price</th>
-                <th>Photo</th>
-                <th>Remove Product</th>
-            </tr>
-            <?php
-            $value = 0;
-            ?>
-         @foreach ($cart as $cartone )
-         <tr>
-            <td>{{ $cartone->product_id }}</td>
-            <td>{{ $cartone->product->title  }}</td>
-            <td>{{ $cartone->product->description  }}</td>
-            <td>{{ $cartone->product->price  }}</td>
-            <td><img class="w-50" src="products/{{$cartone->product->image}}" alt=""></td>
-            <td><a href="{{ url('delete_cart_product',$cartone->id) }}" class="btn btn-danger">Remove</a></td>
-         </tr>
+        @foreach ($cart as $cartone)
+        @php $value += $cartone->product->price; @endphp
+        <div class="ark-glass p-4 mb-4 d-flex justify-content-between flex-wrap align-items-start">
+        <!-- LEFT: Product Details -->
+        <div class="ark-product-text" style="flex: 1 1 55%;">
+          <h5><strong>Product ID:</strong> {{ $cartone->product_id }}</h5>
+          <h5><strong>Product Name:</strong> {{ $cartone->product->title }}</h5>
+          <h5><strong>Description:</strong> <p>{{ $cartone->product->description }}</p></h5>
+        </div>
 
-         <?php 
-         
-         $value = $value + $cartone->product->price;
-
-         ?>
-
-         @endforeach
-         </table>
+        <!-- RIGHT: Image, Price, Remove Button -->
+        <div class="ark-product-media text-center" style="flex: 1 1 40%;">
+          <img src="products/{{ $cartone->product->image }}" class="img-fluid rounded shadow mb-3" style="max-width: 100%; height: auto;" alt="">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="text-black"><strong>Price:</strong> ₹{{ $cartone->product->price }}</h6>
+            <a href="{{ url('delete_cart_product', $cartone->id) }}" class="btn btn-danger btn-sm">Remove</a>
+          </div>
+        </div>
       </div>
-      <div  style="text-align: center;">
 
-      <h2>Total Price of Your Product Is : ₹ {{ $value }}</h2>
+        @endforeach
 
+        <div class="ark-glass p-3 mt-4 text-center">
+          <h5 class="text-black">Total Price: ₹{{ $value }}</h5>
+        </div>
       </div>
-      <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+
+      <!-- Right: Receiver Info -->
+      <div class="col-md-5 ark-glass p-4 mb-4 seprate">
+        <h4 class="text-white text-center mb-4">Receiver Information</h4>
         <form action="{{ url('conform_order') }}" method="post">
-            @csrf
-        <div>
-            <label for="receivername">Receiver Name:</label>
-            <input type="text" name="name" id="receivername" value="{{ Auth::user()->name }}">
-        </div>
-        <div>
-            <label for="receiveraddress">Receiver Address:</label>
-           <textarea name="address" id="receiveraddress">{{ Auth::user()->address }}</textarea>
-        </div>
-        <div>
-            <label for="receiverphone">Receiver Name:</label>
-            <input type="text" name="phone" id="receiverphone" value="{{ Auth::user()->phone }}">
-        </div>
-       <button class="btn btn-success">Cash On Deliverey</button>
-       <a href="{{ url('razorpay-payment',$value) }}" class="btn btn-primary">Pay Using Card</a>
+          @csrf
+          <div class="form-group">
+            <label for="receivername" class="text-white">Name</label>
+            <input type="text" name="name" id="receivername" class="form-control" value="{{ Auth::user()->name }}">
+          </div>
+          <div class="form-group">
+            <label for="receiveraddress" class="text-white">Address</label>
+            <textarea name="address" id="receiveraddress" class="form-control">{{ Auth::user()->address }}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="receiverphone" class="text-white">Phone</label>
+            <input type="text" name="phone" id="receiverphone" class="form-control" value="{{ Auth::user()->phone }}">
+          </div>
+          <button class="btn btn-success mt-3 w-100">Cash On Delivery</button>
+          <a href="{{ url('razorpay-payment', $value) }}" class="btn btn-primary mt-2 w-100">Pay Using Card</a>
         </form>
       </div>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- end shop section -->
+@include('home.footer')
 
+<style>
+  
+  
 
-  <!-- info section -->
+.ark-glassy-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+}
 
-  <section class="info_section  layout_padding2-top">
-    <div class="social_container">
-      <div class="social_box">
-        <a href="">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-instagram" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-youtube" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <div class="info_container ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              ABOUT US
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_form ">
-              <h5>
-                Newsletter
-              </h5>
-              <form action="#">
-                <input type="email" placeholder="Enter your email">
-                <button>
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              NEED HELP
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              CONTACT US
-            </h6>
-            <div class="info_link-box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span> Gb road 123 london Uk </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>+01 12345678901</span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> demo@gmail.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-   
-    @include ('home.footer')
+.seprate{
+   background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  height: 500px;
+  margin-top: 50px;
+}
+
+.ark-glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+.ark-glass:hover {
+  border-color: #fff;
+}
+
+.ark-glass h4,
+.ark-glass p,
+.ark-glass label {
+  color: #fff;
+  font-weight: 600;
+}
+
+.ark-glass p{
+  font-size: 20px;
+}
+
+.ark-glass input,
+.ark-glass textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  color: black;
+}
+
+.ark-glass input::placeholder,
+.ark-glass textarea::placeholder {
+  color: #ccc;
+}
+
+</style>

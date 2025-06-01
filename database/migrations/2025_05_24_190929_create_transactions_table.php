@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('t_id');
-            $table->decimal('amount_paid', 10, 2)->nullable();
+            $table->string('amount_paid')->nullable();
+            $table->string('payment_method')->nullable();
             $table->string('user_id');
             $table->string('user_name');
             $table->string('status');

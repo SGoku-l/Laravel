@@ -1,25 +1,89 @@
- <!-- footer section -->
- <footer class=" footer_section">
-      <div class="container">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Web Tech Knowledge</a>
-        </p>
+<!-- Custom Info Footer Section -->
+<section class="ark-footer-container py-5">
+  <div class="container">
+
+    <!-- Social Icons -->
+    <div class="row mb-4">
+      <div class="col text-center">
+        <div class="ark-social-icons d-inline-flex gap-3 justify-content-center">
+          <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+          <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+          <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+          <a href="#"><i class="fa fa-youtube fa-lg"></i></a>
+        </div>
       </div>
-    </footer>
-    <!-- footer section -->
+    </div>
 
-  </section>
+    <!-- Glassy Info Boxes -->
+    <div class="row gy-4 justify-content-center">
+      <!-- About Us -->
+      <div class="col-md-6 col-lg-3">
+        <div class="ark-glassy-box p-4 h-100">
+          <h6 class="fw-bold text-uppercase">About Us</h6>
+          <p class="text-white-50">
+            ARK Multi-Specialty Clinic is committed to delivering expert healthcare with compassion and dedication. Our team ensures personalized treatment using state-of-the-art facilities.
+          </p>
+        </div>
+      </div>
 
-  <!-- end info section -->
+      <!-- Newsletter -->
+      <div class="col-md-6 col-lg-3">
+        <div class="ark-glassy-box p-4 h-100">
+          <h6 class="fw-bold text-uppercase">Newsletter</h6>
+          <p class="text-white-50">Stay updated with our latest news and health tips.</p>
+          <form id="ark-newsletter-form" action="#">
+            <input type="email" class="form-control mb-2" placeholder="Enter your email" required>
+            <button class="btn btn-primary w-100" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Need Help -->
+      <div class="col-md-6 col-lg-3">
+        <div class="ark-glassy-box p-4 h-100">
+          <h6 class="fw-bold text-uppercase">Need Help?</h6>
+          <p class="text-white-50">
+            Our support team is available from 8AM to 8PM to answer your questions. Visit our FAQ for more help.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-6 col-lg-3">
+        <div class="ark-glassy-box p-4 h-100">
+          <h6 class="fw-bold text-uppercase">Contact Us</h6>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2">
+              <i class="fa fa-map-marker me-2 text-light"></i> 123 Health Street, Chennai, India
+            </li>
+            <li class="mb-2">
+              <i class="fa fa-phone me-2 text-light"></i> +91 98765 43210
+            </li>
+            <li>
+              <i class="fa fa-envelope me-2 text-light"></i> contact@arkclinic.in
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Bottom -->
+<footer class="ark-footer-bottom text-white text-center py-3">
+  <div class="container">
+    <p class="mb-0">
+      &copy; <span id="arkDisplayYear"></span> ARK Multi-Specialty Clinic. All rights reserved.
+      Powered by <a class="text-warning text-decoration-none" href="https://html.design/" target="_blank">Web Tech Knowledge</a>
+    </p>
+  </div>
+
+  <script>
+  document.getElementById("arkDisplayYear").textContent = new Date().getFullYear();
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-  <script src="{{ asset('ecomtemp/js/jquery-3.4.1.min.js')}}"></script>
-  <script src="{{ asset('ecomtemp/js/bootstrap.js') }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <script src="{{ asset('ecomtemp/js/custom.js') }}"></script>
-
-</body>
-
-</html>
+</footer>

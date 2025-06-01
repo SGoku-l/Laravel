@@ -180,16 +180,17 @@ class HomeController extends Controller
 
         $paymentid = $payment['id'];
         $amount = $payment['amount']/100;
+        $method = $payment['method'];
         $pay_status = $payment['status'];
         $user_id = Auth::user()->id;
         $user_name = Auth::user()->name;
 
        
-
         $transaction = Transaction::create([
 
             't_id' => $paymentid,
             'amount_paid' => $amount,
+            'payment_method' => $method,
             'status' => $pay_status,
             'user_id' => $user_id,
             'user_name' => $user_name,
