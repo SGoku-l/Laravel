@@ -33,7 +33,7 @@
 <header class="ark-header">
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg ark-navbar">
-      <a class="navbar-brand ark-logo" href="{{ url('/') }}">E-Comm</a>
+      <a class="navbar-brand ark-logo text-white" href="{{ url('/') }}">E-Comm</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#arkNav">
         <span class="navbar-toggler-icon"></span>
       </button>

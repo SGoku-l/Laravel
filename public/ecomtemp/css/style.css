@@ -3,7 +3,7 @@
 body {
   font-family: "poppins", sans-serif;
   color: #101010;
-  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 }
 
 .layout_padding {
@@ -990,3 +990,45 @@ a:focus {
   text-decoration: none;
 }
 
+  .hero-section {
+  height: 100vh;
+  background-color: whitesmoke; /* black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.gradient-text {
+  font-size: 60px;
+  font-weight: 800;
+  background: linear-gradient(150deg, whitesmoke, #111);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  color: transparent;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .gradient-text {
+    font-size: 40px;
+  }
+}
+
+.gradient-textt {
+  font-size: 25px;
+  font-weight: 800;
+  background: linear-gradient(150deg, rgb(198, 191, 191), #373636);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  color: transparent;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .gradient-textt {
+    font-size: 40px;
+  }
+}

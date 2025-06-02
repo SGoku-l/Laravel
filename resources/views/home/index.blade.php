@@ -11,14 +11,11 @@
                 <div class="row">
                   <div class="col-md-7">
                     <div class="detail-box"> 
-                      <h1>
-                        Welcome To Our <br>
-                        Gift Shop
-                      </h1>
-                      <p>
-                        Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                     <h1 class="gradient-text">Welcome To Our<br>Gift Shop</h1>
+                      <p class="gradient-textt">
+                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, commodi laboriosam et dolor error minus dolore enim ratione tempora harum?
                       </p>
-                      <a href="">
+                      <a href="" style="text-decoration: none;">
                         Contact Us
                       </a>
                     </div>
@@ -69,7 +66,6 @@
   <br><br><br>
 
   <!-- end contact section -->
-
    
    
     @include ('home.footer')

@@ -1,107 +1,82 @@
 @include ('home.header')
 
-
-<!-- shop section -->
-<section class="shop_section layout_padding">
-  <div class="container">
-    <div class="heading_container heading_center">
-      <h2>
-        {{ $detail->title }} Product Details
-      </h2>
+<!-- product details section -->
+<section class="product-detail-section py-5">
+  <div class="container white-bg-container rounded p-4">
+    <div class="text-center mb-5">
+      <h2 class="text-white">{{ $detail->title }} Product Details</h2>
     </div>
 
-    <div class="row justify-content-center align-items-center mt-4">
-      <div class="col-md-5 text-center">
-        <img src="{{ url('products', $detail->image) }}" alt="{{ $detail->title }}" class="img-fluid" style="max-height: 250px;">
+    <div class="row justify-content-center align-items-start g-4">
+      <!-- Glassy Image Box -->
+      <div class="col-md-5">
+        <div class="glass-box text-center p-4">
+          <img src="{{ url('products', $detail->image) }}" alt="{{ $detail->title }}" class="img-fluid rounded" style="max-height: 300px;">
+        </div>
       </div>
 
+      <!-- Glassy Content Box -->
       <div class="col-md-7">
-        <p><strong>Description:</strong> {{ $detail->description }}</p>
-
-        <p><strong>Price:</strong> ₹{{ $detail->price }}</p>
-
-        <p><strong>Category:</strong> {{ $detail->catagory }}</p>
-
-        <p><strong>Quantity:</strong> {{ $detail->quantity }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end shop section -->
- 
-
-  <!-- info section -->
-
-  <section class="info_section  layout_padding2-top">
-    <div class="social_container">
-      <div class="social_box">
-        <a href="">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-instagram" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-youtube" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-    <div class="info_container ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              ABOUT US
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
+        <div class="glass-box p-4">
+          <div class="mb-3">
+            <h6><strong>Description:</strong></h6>
+            <h5 class="text-white">{{ $detail->description }}</h5>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_form ">
-              <h5>
-                Newsletter
-              </h5>
-              <form action="#">
-                <input type="email" placeholder="Enter your email">
-                <button>
-                  Subscribe
-                </button>
-              </form>
-            </div>
+          <div class="mb-3">
+            <h6><strong>Price:</strong></h6>
+            <h5 class="text-white">₹{{ $detail->price }}</h5>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              NEED HELP
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-            </p>
+          <div class="mb-3">
+            <h6><strong>Category:</strong></h6>
+            <h5 class="text-white">{{ $detail->catagory }}</h5>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <h6>
-              CONTACT US
-            </h6>
-            <div class="info_link-box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span> Gb road 123 london Uk </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>+01 12345678901</span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> demo@gmail.com</span>
-              </a>
-            </div>
+          <div class="mb-3">
+            <h6><strong>Quantity:</strong></h6>
+            <h5 class="text-white">{{ $detail->quantity }}</h5>
           </div>
         </div>
       </div>
     </div>
-   
-    @include ('home.footer')
+  </div>
+</section>
+
+<style>
+/* Full white background inside the section */
+.white-bg-container {
+  background: blur(16px);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassy floating box */
+.glass-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.glass-box:hover {
+  border: 1px white solid;
+  transform: translateY(-5px);
+}
+
+/* Text styling */
+.glass-box h6 {
+  font-weight: 600;
+  color: #333;
+}
+
+.glass-box p {
+  font-size: 15px;
+  color: #444;
+}
+
+</style>
+
+
+@include ('home.footer')
