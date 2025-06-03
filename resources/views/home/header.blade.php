@@ -11,10 +11,10 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('ecomtemp/images/shopping-cart.png') }}" type="image/x-icon">
 
   <title>
-   E-Comm
+   E-Commers
   </title>
 
   <!-- slider stylesheet -->
