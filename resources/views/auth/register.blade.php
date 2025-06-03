@@ -1,66 +1,149 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register | E-Comm</title>
+  <link rel="stylesheet" href="{{ asset('ecomtemp/css/bootstrap.css') }}">
+  <style>
+    body {
+      background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+      color: #fff;
+    }
+
+    .glass-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #055160;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #fff;
+    }
+
+    .form-control::placeholder {
+      color: gray;
+    }
+
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: none;
+      color: black;
+    }
+
+    .btn-glass {
+      background: #8ec5fc;
+      border: none;
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.5);
+      color: #055160;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #055160;
+    }
+
+    .text-danger {
+      font-size: 0.85rem;
+    }
+
+    .login-link {
+      display: block;
+      margin-top: 10px;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #055160;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-box">
+    <h2>Register</h2>
+
     <form method="POST" action="{{ route('register') }}">
-        @csrf
+      @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+      <div class="form-group mb-3">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required autofocus value="{{ old('name') }}">
+        @error('name')
+          <div class="text-danger mt-1">{{ $message }}</div>
+        @enderror
+      </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+      <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required value="{{ old('email') }}">
+        @error('email')
+          <div class="text-danger mt-1">{{ $message }}</div>
+        @enderror
+      </div>
 
-        <!-- Phone Number -->
-        <div>
-            <x-input-label for="phone" :value="__('phone')" />
-            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
-            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-        </div>
+      <div class="form-group mb-3">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required value="{{ old('phone') }}">
+        @error('phone')
+          <div class="text-danger mt-1">{{ $message }}</div>
+        @enderror
+      </div>
 
-         <!-- Address -->
-         <div>
-            <x-input-label for="address" :value="__('address')" />
-            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
-            <x-input-error :messages="$errors->get('address')" class="mt-2" />
-        </div>
+      <div class="form-group mb-3">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address" required value="{{ old('address') }}">
+        @error('address')
+          <div class="text-danger mt-1">{{ $message }}</div>
+        @enderror
+      </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Create a password" required>
+        @error('password')
+          <div class="text-danger mt-1">{{ $message }}</div>
+        @enderror
+      </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+      <div class="form-group mb-3">
+        <label for="password_confirmation">Confirm Password</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm your password" required>
+        @error('password_confirmation')
+          <div class="text-danger mt-1">{{ $message }}</div>
+        @enderror
+      </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+      <a href="{{ route('login') }}" class="login-link">Already have an account?</a>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+      <button type="submit" class="btn-glass mt-3">Register</button>
     </form>
-</x-guest-layout>
+  </div>
+</body>
+</html>

@@ -73,7 +73,7 @@
 <footer class="ark-footer-bottom text-white text-center py-3">
   <div class="container">
     <p class="mb-0">
-      &copy; <span id="arkDisplayYear"></span> ARK Multi-Specialty Clinic. All rights reserved.
+      &copy; <span id="arkDisplayYear"></span> E-Commers. All rights reserved.
       Powered by <a class="text-warning text-decoration-none" href="https://github.com/SGoku-l/Laravel" target="_blank">Gokul</a>
     </p>
   </div>
@@ -84,6 +84,41 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- JS scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $(window).on('scroll', function () {
+      if ($('.navbar-collapse').hasClass('show')) {
+        $('.navbar-collapse').collapse('hide');
+      }
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    // Show/hide search form
+    $('#searchIcon').on('click', function (e) {
+      e.preventDefault();
+      $('#searchForm').toggleClass('d-none');
+    });
+
+    // Close search form when clicking outside
+    $(document).on('click', function (e) {
+      if (!$(e.target).closest('.search-toggle').length) {
+        $('#searchForm').addClass('d-none');
+      }
+    });
+  });
+</script>
+
+
+
 
 
 </footer>
