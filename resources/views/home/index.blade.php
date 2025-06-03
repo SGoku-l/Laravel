@@ -8,10 +8,10 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-7">
+                <div class="row detail-boxx">
+                  <div class="col-md-7 ">
                     <div class="detail-box"> 
-                     <h1 class="gradient-text">Welcome To Our<br>Gift Shop</h1>
+                     <h1 class="gradient-text">Welcome To Our<br>E-Commers Shop</h1>
                       <p class="gradient-textt">
                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, commodi laboriosam et dolor error minus dolore enim ratione tempora harum?
                       </p>
@@ -21,8 +21,8 @@
                     </div>
                   </div>
                   <div class="col-md-5 ">
-                    <div class="img-box">
-                      <img style="width:600px" src="{{ asset('images/image3.jpeg') }}" alt="" />
+                    <div class="glassy-img-container shadow-lg ">
+                      <img  src="{{ asset('ecomtemp/images/image3.jpeg') }}" alt="img" />
                     </div>
                   </div>
                 </div>
@@ -67,5 +67,23 @@
 
   <!-- end contact section -->
    
+  <style>
+    .detail-boxx{
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 10px;
+      border: 0.1px solid white;
+      padding: 10px;
+    }
+
+.glassy-img-container img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+  </style>
    
     @include ('home.footer')

@@ -220,8 +220,6 @@ class HomeController extends Controller
 
         $cart_remove = Cart::where('user_id',$user_id)->get();
 
-       
-
         foreach($cart_remove as $remove){
 
             $delete = Cart::find($remove->id);
@@ -233,5 +231,50 @@ class HomeController extends Controller
 
         return redirect('mycart') ->with('success', 'Payment successful');
     }
+
+    public function shop(){
+
+        if(Auth::id()){
+
+            $userid = Auth::user()->id;
+            $count = Cart::where('user_id',$userid)->get()->count();
+
+        }
+        else{
+
+            $count = '';
+
+        }
+
+        $product = Product::all();
+
+        $catagory = Catagory::all();
+
+        return view('home.shop',compact('count','product','catagory'));
+
+    }
+
+    public function catagory_list_find($catagory_name){
+
+        if(Auth::id()){
+
+            $user_id = Auth::user()->id;
+            $count = Cart::where('user_id',$user_id)->get()->count();
+
+        }
+        else{
+
+            $count = '';
+
+        }
+
+        $product = Product::where('catagory',$catagory_name)->get();
+        $product_catagory = $catagory_name; 
+        $catagory = Catagory::all();
+
+        return view('home.catagory_product',compact('product','catagory','count','product_catagory'));
+
+    }
+        
 
 }

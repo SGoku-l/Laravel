@@ -43,7 +43,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/') }}">Home</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('shop') }}">Shop</a></li>
           <li class="nav-item"><a class="nav-link" href="why.html">Why Us</a></li>
           <li class="nav-item"><a class="nav-link" href="testimonial.html">Testimonial</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>

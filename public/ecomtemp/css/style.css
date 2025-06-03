@@ -1012,7 +1012,7 @@ a:focus {
 
 @media (max-width: 768px) {
   .gradient-text {
-    font-size: 40px;
+    font-size: 10px;
   }
 }
 
@@ -1029,6 +1029,6 @@ a:focus {
 
 @media (max-width: 768px) {
   .gradient-textt {
-    font-size: 40px;
+    font-size: 20px;
   }
 }
