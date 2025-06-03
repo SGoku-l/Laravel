@@ -3,7 +3,7 @@
 <section class="why_section layout_padding">
   <div class="container">
     <div class="heading_container heading_center">
-      <h2 class="text-white">
+      <h2 style="color: #055160; font-weight: 700;">
         Why Shop With Us
       </h2>
     </div>

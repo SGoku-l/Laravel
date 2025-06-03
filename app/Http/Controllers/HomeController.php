@@ -157,8 +157,9 @@ class HomeController extends Controller
         return view('home.razorpay',compact('value'));
     }
 
-       public function store(Request $request,$value): RedirectResponse
+     public function store(Request $request,$value): RedirectResponse
     {
+
         $input = $request->all();
   
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
@@ -229,7 +230,7 @@ class HomeController extends Controller
 
         session()->put('payment_done',true);
 
-        return redirect('mycart') ->with('success', 'Payment successful');
+        return redirect('mycart')->with('success', 'Payment successful');
     }
 
     public function shop(){

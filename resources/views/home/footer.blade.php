@@ -74,7 +74,7 @@
   <div class="container">
     <p class="mb-0">
       &copy; <span id="arkDisplayYear"></span> ARK Multi-Specialty Clinic. All rights reserved.
-      Powered by <a class="text-warning text-decoration-none" href="https://html.design/" target="_blank">Web Tech Knowledge</a>
+      Powered by <a class="text-warning text-decoration-none" href="https://github.com/SGoku-l/Laravel" target="_blank">Gokul</a>
     </p>
   </div>
 

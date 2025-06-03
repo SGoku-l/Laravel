@@ -3,7 +3,7 @@
 <section class="glass-contact-section layout_padding">
   <div class="container px-0">
     <div class="heading_container text-center mb-4">
-      <h2 class="text-white">Contact Us</h2>
+      <h2 style="color: #055160; font-weight: 700;">Contact Us</h2>
     </div>
   </div>
 

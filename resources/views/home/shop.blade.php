@@ -6,10 +6,10 @@
     <!-- Sidebar for Categories -->
     <div class="col-md-3 mb-4 ps-0">
       <div class="ark-sidebar">
-        <h5><strong class="text-black">Categories</strong></h5>
+        <h5><strong  style="color: #055160; font-weight: 700;">Categories</strong></h5>
         <ul class="list-unstyled mt-3">
             @foreach ($catagory as $catagories)
-            <li value="{{ $catagories->catagory_name }}"><a href="{{ url('catagory_list_find',$catagories->catagory_name ) }}">{{ $catagories->catagory_name }}</a></li>
+            <li value="{{ $catagories->catagory_name }}"><a href="{{ url('catagory_list_find',$catagories->catagory_name ) }}" >{{ $catagories->catagory_name }}</a></li>
             @endforeach
         </ul>
       </div>
@@ -18,7 +18,7 @@
     <!-- Product Grid -->
     <div class="col-md-9">
       <div class="text-center mb-5">
-        <h2>Latest Products</h2>
+        <h2 style="color: #055160; font-weight: 700;">Latest Products</h2>
       </div>
       <div class="row g-4">
         @foreach ($product as $products)

@@ -3,7 +3,7 @@
 <section class="testimonial_section" style="margin-top: 25px; margin-bottom: 20px;">
   <div class="container">
     <div class="section_title">
-      <h2 class="text-white">Testimonials</h2>
+      <h2 style="color: #055160; font-weight: 700;">Testimonials</h2>
     </div>
   </div>
   <div class="container px-0">

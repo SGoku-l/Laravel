@@ -15,7 +15,7 @@
                       <p class="gradient-textt">
                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, commodi laboriosam et dolor error minus dolore enim ratione tempora harum?
                       </p>
-                      <a href="" style="text-decoration: none;">
+                      <a href="{{ url('contact') }}" style="text-decoration: none;">
                         Contact Us
                       </a>
                     </div>
@@ -42,7 +42,7 @@
   <!-- shop section -->
 <section class="container py-5 ark-shop-section">
   <div class="text-center mb-5">
-    <h2>Latest Products</h2>
+    <h2 style="color: #055160; font-weight: 700;">Latest Products</h2>
   </div>
   <div class="row g-4">
     @foreach ($product as $products)
