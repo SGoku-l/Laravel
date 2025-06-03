@@ -44,9 +44,9 @@
             <a class="nav-link" href="{{ url('/') }}">Home</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="{{ url('shop') }}">Shop</a></li>
-          <li class="nav-item"><a class="nav-link" href="why.html">Why Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="testimonial.html">Testimonial</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('why') }}">Why Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('testimonial') }}">Testimonial</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('contact')}}">Contact</a></li>
         </ul>
 
         <div class="ark-user-options ml-auto">
@@ -65,8 +65,9 @@
             @endauth
           @endif
 
-          <form class="form-inline d-inline-block">
-            <button class="ark-search-btn" type="submit"><i class="fa fa-search"></i></button>
+          <form class="form-inline d-inline-block search-form" method="get" action="{{ url('search_product') }}">
+            <input type="search" name="search_items" value="{{ @$search }}" class="form-control form-control-sm me-2 rounded-pill px-3 glass-input"  placeholder="Search Products...">
+            <button type="submit" class="btn btn-outline-light btn-sm rounded-pill px-3">Search</button>
           </form>
         </div>
       </div>

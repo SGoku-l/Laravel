@@ -69,3 +69,11 @@ Route::post('razorpay-payment/{value}', [HomeController::class, 'store'])->name(
 Route::get('shop',[HomeController::class,'shop']);
 
 Route::get('catagory_list_find/{catagory_name}',[HomeController::class,'catagory_list_find']);
+
+Route::get('search_product',[HomeController::class,'search_product']);
+
+Route::get('why',[HomeController::class,'why']);
+
+Route::get('testimonial',[HomeController::class,'testimonial']);
+
+Route::get('contact',[HomeController::class,'contact']);

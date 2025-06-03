@@ -26,7 +26,6 @@
             <div class="ark-product-box glass-wrapper text-center p-3">
               <img src="{{ asset('products/'. $products->image) }}" alt="{{ $products->title }}" class="img-fluid mb-3 rounded">
               <h5>{{ $products->title }}</h5>
-              <h4>{{ $products->image }}</h4>
               <p class="text-muted">₹{{ $products->price }}</p>
               <div class="ark-btn-group d-flex justify-content-center gap-2 mt-3">
                 <a href="{{ url('product_details', $products->id) }}" class="btn btn-outline-primary btn-sm">Details</a>

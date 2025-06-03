@@ -24,7 +24,7 @@
         @foreach ($product as $products)
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="ark-product-box glass-wrapper text-center p-3">
-              <img src="products/{{ $products->image }}" alt="{{ $products->title }}" class="img-fluid mb-3 rounded">
+              <img src="{{ asset('products/'.$products->image) }}" alt="{{ $products->title }}" class="img-fluid mb-3 rounded">
               <h5>{{ $products->title }}</h5>
               <p class="text-muted">₹{{ $products->price }}</p>
               <div class="ark-btn-group d-flex justify-content-center gap-2 mt-3">
