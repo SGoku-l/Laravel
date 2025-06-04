@@ -39,6 +39,12 @@
                 </a>
             </li>
 
+                <li class="{{ request()->is('users') ? 'active' : '' }}">
+                <a href="{{ url('users_list') }}">
+                    <i class="icon-user-1"></i> Users
+                </a>
+            </li>
+
               </ul>  
       </nav>
       <!-- Sidebar Navigation end-->

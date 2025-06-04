@@ -11,6 +11,8 @@
   <!-- responsive style -->
   <link href="{{ asset('ecomtemp/css/responsive.css') }}" rel="stylesheet" /></form>
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=pending" />
+
 </head>
 
 <header class="header">   
@@ -30,7 +32,7 @@
           <div class="navbar-header">
             <!-- Navbar Header--><a href="index.html" class="navbar-brand">
               <div class="brand-text brand-big visible text-uppercase"><strong class="text-white">{{ Auth::user()->name }}</strong><strong>Admin</strong></div>
-              <div class="brand-text brand-sm"><strong class="text-primary">{{ strtoupper(substr(Auth::user()->name,0,1)) }}</strong><strong>S</strong></div></a>
+              <div class="brand-text brand-sm"><strong class="text-white">{{ strtoupper(substr(Auth::user()->name,0,1)) }}</strong><strong>S</strong></div></a>
             <!-- Sidebar Toggle Btn-->
             <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
           </div>

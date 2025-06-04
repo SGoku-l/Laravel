@@ -27,7 +27,11 @@ class HomeController extends Controller
 
         $delivered = Order::where('status','deliverd')->get()->count();
 
-        return view('admin.index',compact('users','products','orders','delivered'));
+        $catagory = Catagory::all()->count();
+
+        $progress = Order::where('status','in progress')->get()->count();
+
+        return view('admin.index',compact('users','products','orders','delivered','catagory','progress'));
 
     }
 

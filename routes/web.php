@@ -64,6 +64,10 @@ Route::get('print_pdf/{id}',[AdminController::class,'print_pdf'])->middleware(['
 
 Route::get('razorpay-payment/{value}', [HomeController::class, 'indexx'])->middleware(['auth','verified']);
 
+Route::get('users_list', [AdminController::class, 'users_list'])->middleware(['auth','verified']);
+
+Route::get('users_search', [AdminController::class, 'users_search'])->middleware(['auth','verified']);
+
 Route::post('razorpay-payment/{value}', [HomeController::class, 'store'])->name('razorpay.payment.store');
 
 Route::get('shop',[HomeController::class,'shop']);

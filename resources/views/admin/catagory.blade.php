@@ -40,10 +40,10 @@
                                 <tr>
                                     <td class="text-white">{{ $datas->catagory_name }}</td>
                                     <td>
-                                        <a href="{{ url('edit_catagory/'.$datas->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                        <a href="{{ url('edit_catagory/'.$datas->id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="{{ url('delete_catagory/'.$datas->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+                                        <a href="{{ url('delete_catagory/'.$datas->id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

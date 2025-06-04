@@ -202,15 +202,5 @@ class AdminController extends Controller
 
     }
 
-    public function users_search(Request $request){
-
-        $search = $request->search;
-
-        $users_list = User::where('name','LIKE','%'.$search.'%')->orWhere('email','LIKE','%'.$search.'%')->orWhere('phone','LIKE','%'.$search.'%')->paginate(10);
-
-        return view('admin.users',compact('users_list','search'));
-
-    }
-
 
 }
