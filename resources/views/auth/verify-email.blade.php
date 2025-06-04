@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Email Verification | E-Comm</title>
   <link rel="stylesheet" href="{{ asset('ecomtemp/css/bootstrap.css') }}">
+  <link rel="shortcut icon" href="{{ asset('ecomtemp/images/shopping-cart.png') }}" type="image/x-icon">
   <style>
     body {
       background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
@@ -110,3 +111,4 @@
   </div>
 </body>
 </html>
+>
