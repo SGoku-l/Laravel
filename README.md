@@ -2,7 +2,7 @@
 
 ###
 
-<h1 align="left">My Name is Gokul <br>Im a Java Full Stack and PHP Laravel Developer</h1>
+<h1 align="left">My Name is Gokul <br>Im a PHP Laravel Developer and Java Full Stack</h1>
 
 ###
 
