@@ -17,6 +17,8 @@
    E-Commers
   </title>
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
@@ -125,6 +127,9 @@
               </form>
               <a href="{{ url('mycart') }}" class="btn ark-btn-light">
                 Cart <i class="fa fa-shopping-bag"></i> {{ $count }} Products
+              </a>
+              <a href="{{ url('myorder') }}" class="btn ark-btn-light">
+                <i class="fa-regular fa-pen-to-square"></i> {{ $orderss }} Orders
               </a>
             @else
               <a href="{{ url('/login') }}" class="btn ark-btn-light">Login</a>

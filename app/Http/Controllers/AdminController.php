@@ -134,6 +134,7 @@ class AdminController extends Controller
         $data->catagory = $request->pcatagory;
         $image = $request->pimage;
         $oldimagepath = public_path('products/'.$data->image);
+        
         if($image){
             
             $imagename = time().'.'.$image->getClientOriginalExtension();

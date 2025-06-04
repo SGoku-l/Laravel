@@ -43,12 +43,14 @@ class HomeController extends Controller
             $user = Auth::user();
             $userid = $user->id;
             $count = Cart::where('user_id',$userid)->count();
+            $orderss = Order::where('user_id',$userid)->count();
         }
         else{
             $count = '';
+            $orderss = '';
         }
 
-        return view('home.index',compact('product','count'));
+        return view('home.index',compact('product','count','orderss'));
 
     }
 
@@ -59,16 +61,20 @@ class HomeController extends Controller
         $user = Auth::user();
         $userid = $user->id;
         $count = Cart::where('user_id',$userid)->count();
+        $orderss = Order::where('user_id',$userid)->count();
 
-        return view('home.index',compact('product','count'));
+        return view('home.index',compact('product','count','orderss'));
 
     }
 
     public function product_details($id){
 
+        $userid = Auth::user()->id;
         $detail = Product::find($id);
         $count = Cart::where('id',$detail)->count();
-        return view('home.product_details',compact('detail','count'));
+        $orderss = Order::where('user_id',$userid)->count();
+
+        return view('home.product_details',compact('detail','count','orderss'));
 
     }
 
@@ -96,16 +102,18 @@ class HomeController extends Controller
             $user = Auth::user();
             $userid = $user->id;
             $count = Cart::where('user_id',$userid)->count();
+            $orderss = Order::where('user_id',$userid)->count();
             $cart = Cart::where('user_id',$userid)->get();
 
         }
         else{
 
             $count = '';
+            $orderss = '';
 
         }
 
-        return view('home.mycart',compact('count','cart'));
+        return view('home.mycart',compact('count','cart','orderss'));
 
     }
 
@@ -243,11 +251,13 @@ class HomeController extends Controller
 
             $userid = Auth::user()->id;
             $count = Cart::where('user_id',$userid)->get()->count();
+            $orderss = Order::where('user_id',$userid)->count();
 
         }
         else{
 
             $count = '';
+            $orderss = '';
 
         }
 
@@ -255,7 +265,7 @@ class HomeController extends Controller
 
         $catagory = Catagory::all();
 
-        return view('home.shop',compact('count','product','catagory'));
+        return view('home.shop',compact('count','product','catagory','orderss'));
 
     }
 
@@ -265,11 +275,13 @@ class HomeController extends Controller
 
             $user_id = Auth::user()->id;
             $count = Cart::where('user_id',$user_id)->get()->count();
+            $orderss = Order::where('user_id',$user_id)->count();
 
         }
         else{
 
             $count = '';
+            $orderss = '';
 
         }
 
@@ -277,7 +289,7 @@ class HomeController extends Controller
         $product_catagory = $catagory_name; 
         $catagory = Catagory::all();
 
-        return view('home.catagory_product',compact('product','catagory','count','product_catagory'));
+        return view('home.catagory_product',compact('product','catagory','count','product_catagory','orderss'));
 
     }
 
@@ -300,15 +312,17 @@ class HomeController extends Controller
             $userid = Auth::user()->id;
 
             $count = Cart::where('user_id',$userid)->get()->count();
+            $orderss = Order::where('user_id',$userid)->count();
 
         }
         else{
 
             $count = '';
+            $orderss = '';
 
         }
 
-        return view('home.why',compact('count'));
+        return view('home.why',compact('count','orderss'));
 
     }
 
@@ -319,15 +333,17 @@ class HomeController extends Controller
             $userid = Auth::user()->id;
 
             $count = Cart::where('user_id',$userid)->get()->count();
+            $orderss = Order::where('user_id',$userid)->count();
 
         }
         else{
 
             $count = '';
+            $orderss = '';
 
         }
 
-        return view('home.testimonial',compact('count'));
+        return view('home.testimonial',compact('count','orderss'));
 
     }
 
@@ -338,15 +354,40 @@ class HomeController extends Controller
             $userid = Auth::user()->id;
 
             $count = Cart::where('user_id',$userid)->get()->count();
+            $orderss = Order::where('user_id',$userid)->count();
 
         }
         else{
 
             $count = '';
+            $orderss = '';
 
         }
 
-        return view('home.contact',compact('count'));
+        return view('home.contact',compact('count','orderss'));
+
+    }
+
+    public function my_order(){
+
+        if(Auth::id()){
+
+            $userid = Auth::user()->id;
+
+            $count = Cart::where('user_id',$userid)->get()->count();
+            $orderss = Order::where('user_id',$userid)->count();
+
+        }
+        else{
+
+            $count = '';
+            $orderss = '';
+
+        }
+
+        $myorder = Order::where('user_id',$userid)->paginate(3);
+
+        return view('home.orders',compact('myorder','count','orderss'));
 
     }
         
