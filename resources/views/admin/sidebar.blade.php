@@ -2,13 +2,16 @@
       <!-- Sidebar Navigation-->
       <nav id="sidebar">
         <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="{{ asset('ecomtemp/images/gokul.jpg') }}" alt="..." class="img-fluid rounded-circle"></div>
+       <div class="sidebar-header d-flex align-items-center">
+          <div class="avatar">
+            <img src="{{ asset('ecomtemp/images/gokul.jpg') }}" alt="..." class="img-fluid rounded-circle">
+          </div>
           <div class="title">
             <h1 class="h5">{{ Auth::user()->name }}</h1>
             <p>Web Designer</p>
           </div>
         </div>
+
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
                 <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
@@ -39,3 +42,21 @@
               </ul>  
       </nav>
       <!-- Sidebar Navigation end-->
+
+      <style>
+        .sidebar-header .avatar {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+      </style>
