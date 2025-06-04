@@ -16,7 +16,7 @@ class AdminController extends Controller
 
     public function view_catagory(){
 
-        $data = Catagory::all();
+        $data = Catagory::paginate(10);
         return view('admin.catagory', compact('data') );
 
     }    
@@ -159,7 +159,7 @@ class AdminController extends Controller
 
     public function view_orders(){
 
-        $data = Order::all();
+        $data = Order::paginate(10);
         return view('admin.order',compact('data'));
 
     }

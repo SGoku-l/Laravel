@@ -3,24 +3,39 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="{{ asset('ecomtemp/images/gokul.jpg') }}" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
-            <h1 class="h5">Mark Stephen</h1>
+            <h1 class="h5">{{ Auth::user()->name }}</h1>
             <p>Web Designer</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="{{ url('admin/dashboard') }}"> <i class="icon-home"></i>Home </a></li>
-                <li><a href="{{ url('view_catagory') }}"> <i class="icon-grid"></i>Catagory </a></li>
+                <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                <a href="{{ url('admin/dashboard') }}">
+                    <i class="fa-solid fa-gauge"></i> Dashboard
+                </a>
+            </li>
+                 <li class="{{ request()->is('view_catagory') ? 'active' : '' }}">
+                <a href="{{ url('view_catagory') }}">
+                    <i class="fa-solid fa-layer-group"></i> Category
+                </a>
+            </li>
 
-                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i> Products</a>
-                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{ url('add_products') }}">Add Products</a></li>
-                    <li><a href="{{ url('view_products') }}">View Products</a></li>
+
+                   <li class="{{ request()->is('add_products') || request()->is('view_products') ? 'active' : '' }}"><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa-solid fa-box"></i> Products</a>
+                  <ul id="exampledropdownDropdown" class="collapse list-unstyled {{ request()->is('add_products') || request()->is('view_products') ? 'show' : '' }}">
+                    <li><a href="{{ url('add_products') }}" class="{{ request()->is('add_products') ? 'active' : '' }}">Add Products</a></li>
+                    <li><a href="{{ url('view_products') }}" class="{{ request()->is('view_products') ? 'active' : '' }}">View Products</a></li>
                   </ul>
                 </li>
-                <li><a href="{{ url('view_orders') }}"> <i class="icon-grid"></i>Orders</a></li>
+
+                <li class="{{ request()->is('view_orders') ? 'active' : '' }}">
+                <a href="{{ url('view_orders') }}">
+                    <i class="fa-solid fa-cart-shopping"></i> Orders
+                </a>
+            </li>
+
               </ul>  
       </nav>
       <!-- Sidebar Navigation end-->

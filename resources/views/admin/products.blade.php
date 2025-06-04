@@ -2,46 +2,7 @@
 <html>
   <head> 
     @include('admin.css')
-
-    <style>
-      .cata {
-        margin: auto;
-        background-color: black;
-        width: 400px;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-      }
-
-      .cata label {
-        margin-top: 15px;
-        color: whitesmoke;
-        font-weight: 600;
-      }
-
-      .cata input[type='text'],
-      .cata textarea,
-      .cata select,
-      .cata input[type='file'] {
-        margin-top: 5px;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        width: 100%;
-      }
-
-      .cata .btn {
-        margin-top: 25px;
-        width: 100%;
-      }
-      .cata ::placeholder{
-        color: black;
-      }
-      .cata select option {
-        color: black;
-      }
-    </style>
+   
   </head>
 
   <body>
@@ -51,40 +12,42 @@
     <div class="page-content">
       <div class="page-header">
         <div class="container-fluid">
-          <h2>Add Product</h2>
-          <h5 style="margin-top: 10px;"><a href="{{ url('view_products') }}" style="text-decoration: none;"> View Products  <i class="fa fa-long-arrow-right"></i></a></h5>
+          <h2 style="color: white;">Add Product</h2>
+          <h5 style="margin-top: 10px;">
+            <a href="{{ url('view_products') }}" style="text-decoration: none; color: #17a2b8;">View Products <i class="fa fa-long-arrow-right"></i></a>
+          </h5>
         </div>
       </div>
 
       <div class="container">
-        <div class="cata">
+        <div class="product-form-wrapper">
           <form action="{{ url('upload_products') }}" method="post" enctype="multipart/form-data">
             @csrf
 
-            <label for="title">Product Title</label>
-            <input type="text" name="title" class="form-control bg-white" placeholder="Enter Product Name">
+            <label for="product_title">Product Title</label>
+            <input type="text" id="product_title" name="title" placeholder="Enter Product Name">
 
-            <label for="description">Description</label>
-            <textarea name="description" class="form-control bg-white" id="description" placeholder="Enter Product Description"></textarea>
+            <label for="product_description">Description</label>
+            <textarea name="description" id="product_description" rows="3" placeholder="Enter Product Description"></textarea>
 
-            <label for="price">Price</label>
-            <input type="text" name="price" class="form-control bg-white" placeholder="Enter Price" id="price">
+            <label for="product_price">Price</label>
+            <input type="text" id="product_price" name="price" placeholder="Enter Price">
 
-            <label for="quantity">Quantity</label>
-            <input type="text" name="quantity" class="form-control bg-white" placeholder="Enter Quantity" id="quantity">
+            <label for="product_quantity">Quantity</label>
+            <input type="text" id="product_quantity" name="quantity" placeholder="Enter Quantity">
 
-            <label for="pcatagory">Product Category</label>
-            <select name="pcatagory" class="form-control bg-white" id="pcatagory">
-              <option >Select Product</option>
+            <label for="product_category">Product Category</label>
+            <select name="pcatagory" id="product_category">
+              <option disabled selected>Select Product</option>
               @foreach ($data as $datas)
               <option value="{{ $datas->catagory_name }}">{{ $datas->catagory_name }}</option>
               @endforeach
             </select>
 
-            <label for="pimage">Product Image</label>
-            <input type="file" class="form-control bg-white" name="pimage" id="pimage">
+            <label for="product_image">Product Image</label>
+            <input type="file" name="pimage" id="product_image">
 
-            <button class="btn btn-success">Add Product</button>
+            <button class="submit-btn">Add Product</button>
           </form>
         </div>
       </div>

@@ -1,3 +1,18 @@
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+   <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('ecomtemp/css/bootstrap.css') }}" />
+
+  <!-- Custom styles for this template -->
+  <link href="{{ asset('ecomtemp/css/style.css') }}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{ asset('ecomtemp/css/responsive.css') }}" rel="stylesheet" /></form>
+
+</head>
+
 <header class="header">   
       <nav class="navbar navbar-expand-lg">
         <div class="search-panel">
@@ -24,7 +39,7 @@
             <div class="list-inline-item logout">
                 <form action="{{ route('logout') }}" method="post"> 
                     @csrf
-                <button class="nav-link" id="logout" style="border: none; background: none; color: wheat;">Logout <i class="icon-logout"></i></button>       
+                <button class="nav-link" id="logout" style="border: none; background: none; color: red; font-weight: 800;">Logout <i class="icon-logout"></i></button>       
                 </form>
             </div>
           </div>

@@ -3,45 +3,6 @@
   <head> 
     @include('admin.css')
 
-    <style>
-      .cata {
-        margin: auto;
-        background-color: black;
-        width: 400px;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-      }
-
-      .cata label {
-        margin-top: 15px;
-        color: whitesmoke;
-        font-weight: 600;
-      }
-
-      .cata input[type='text'],
-      .cata textarea,
-      .cata select,
-      .cata input[type='file'] {
-        margin-top: 5px;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        width: 100%;
-      }
-
-      .cata .btn {
-        margin-top: 25px;
-        width: 100%;
-      }
-      .cata ::placeholder{
-        color: black;
-      }
-      .cata select option {
-        color: black;
-      }
-    </style>
   </head>
 
   <body>
@@ -51,37 +12,42 @@
     <div class="page-content">
       <div class="page-header">
         <div class="container-fluid">
-          <h2>Update Products</h2>
-          <h5 style="margin-top: 10px;"><a href="{{ url('view_products') }}" style="text-decoration: none;"> <i class="fa fa-long-arrow-left"></i> View Products </a></h5>
+          <h2 style="color: white;">Update Product</h2>
+          <h5 style="margin-top: 10px;">
+            <a href="{{ url('view_products') }}" style="text-decoration: none; color: #17a2b8;">
+              <i class="fa fa-long-arrow-left"></i> View Products
+            </a>
+          </h5>
         </div>
       </div>
 
       <div class="container">
-        <div class="cata">
-          <form action="{{ url('update_products',$data->id) }}" method="post" enctype="multipart/form-data">
+        <div class="update-product-form">
+          <form action="{{ url('update_products', $data->id) }}" method="post" enctype="multipart/form-data">
             @csrf
 
-            <label for="title">Product Title</label>
-            <input type="text" name="title" class="form-control bg-white" placeholder="Enter Product Name" value="{{ $data->title }}">
+            <label for="product_title">Product Title</label>
+            <input type="text" id="product_title" name="title" value="{{ $data->title }}" placeholder="Enter Product Name">
 
-            <label for="description">Description</label>
-            <textarea name="description"  class="form-control bg-white" id="description" placeholder="Enter Product Description" >{{ $data->description }}</textarea>
+            <label for="product_description">Description</label>
+            <textarea name="description" id="product_description" rows="3" placeholder="Enter Product Description">{{ $data->description }}</textarea>
 
-            <label for="price">Price</label>
-            <input type="text" name="price" class="form-control bg-white" placeholder="Enter Price" id="price" value="{{ $data->price }}">
+            <label for="product_price">Price</label>
+            <input type="text" id="product_price" name="price" value="{{ $data->price }}" placeholder="Enter Price">
 
-            <label for="quantity">Quantity</label>
-            <input type="text" name="quantity" class="form-control bg-white" placeholder="Enter Quantity" id="quantity" value="{{ $data->quantity }}">
+            <label for="product_quantity">Quantity</label>
+            <input type="text" id="product_quantity" name="quantity" value="{{ $data->quantity }}" placeholder="Enter Quantity">
 
-            <label for="pcatagory">Product Category</label>
-             <input type="text" value="{{ $data->catagory }}" id="pcatagory" name="pcatagory"><br><br>
+            <label for="product_category">Product Category</label>
+            <input type="text" id="product_category" name="pcatagory" value="{{ $data->catagory }}" placeholder="Category">
 
-             <img src="{{ asset('products/'.$data->image ) }}" alt="" height="120" width="120"> <br>
-             
-            <label for="pimage">Product Image</label>
-            <input type="file" class="form-control bg-white" name="pimage" id="pimage">
+            <label>Current Product Image</label>
+            <img src="{{ asset('products/' . $data->image) }}" alt="Product Image" class="current-img" height="120" width="120">
 
-            <button class="btn btn-success">Update Product</button>
+            <label for="product_image">Upload New Image</label>
+            <input type="file" name="pimage" id="product_image">
+
+            <button class="submit-btn">Update Product</button>
           </form>
         </div>
       </div>
