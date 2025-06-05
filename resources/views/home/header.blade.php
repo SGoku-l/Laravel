@@ -111,6 +111,11 @@
           @endif
         </a>
 
+         @else
+         <div class="ark-user-options-mobile d-lg-none mt-2">
+              <a href="{{ url('/login') }}" class="btn btn-outline-light btn-sm btn-block w-100 mb-2">Login</a>
+        </div>
+
         @endauth
        
        @endif
