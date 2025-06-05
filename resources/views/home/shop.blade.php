@@ -6,12 +6,22 @@
     <!-- Sidebar for Categories -->
     <div class="col-md-3 mb-4 ps-0">
       <div class="ark-sidebar">
-        <h5><strong  style="color: #055160; font-weight: 700;">Categories</strong></h5>
-        <ul class="list-unstyled mt-3">
-            @foreach ($catagory as $catagories)
-            <li value="{{ $catagories->catagory_name }}"><a href="{{ url('catagory_list_find',$catagories->catagory_name ) }}" >{{ $catagories->catagory_name }}</a></li>
-            @endforeach
+        <h5><strong style="color: #055160; font-weight: 700;">Categories</strong></h5>
+        
+        <ul class="list-unstyled mt-3 ark-category-list" id="categoryList">
+          @foreach ($catagory as $index => $catagories)
+            <li class="category-item {{ $index >= 8 ? 'd-none extra-category' : '' }}" value="{{ $catagories->catagory_name }}">
+              <a href="{{ url('catagory_list_find', $catagories->catagory_name) }}">{{ $catagories->catagory_name }}</a>
+            </li>
+          @endforeach
         </ul>
+
+        <!-- Show More/Less Toggle Button -->
+        <div class="text-center mt-3">
+          <button class="btn btn-sm btn-outline-light" id="toggleCategoryBtn">
+            Show More <span id="toggleIcon">▼</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -39,53 +49,22 @@
   </div>
 </section>
 
-
-<style>
-/* Sidebar Styling */
-.ark-sidebar {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  margin-left: 10px;
-  color: white;
-}
-
-/* Sidebar List */
-.ark-sidebar ul {
-  padding-left: 0;
-}
-
-.ark-sidebar ul li a {
-  display: block;
-  padding: 6px 0;
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.ark-sidebar ul li a:hover {
-  color: #0d6efd;
-}
-
-/* Product Card Styling (Glassy) */
-.glass-wrapper {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: 0.3s ease;
-}
-
-.glass-wrapper:hover {
-  transform: translateY(-5px);
-}
-
-
-</style>
-
 @include ('home.footer')
+
+
+
+<!-- JavaScript for Show More/Show Less -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.getElementById('toggleCategoryBtn');
+  const extraItems = document.querySelectorAll('.extra-category');
+  const icon = document.getElementById('toggleIcon');
+  let expanded = false;
+
+  toggleBtn.addEventListener('click', () => {
+    expanded = !expanded;
+    extraItems.forEach(item => item.classList.toggle('d-none'));
+    toggleBtn.innerHTML = expanded ? 'Show Less <span id="toggleIcon">▲</span>' : 'Show More <span id="toggleIcon">▼</span>';
+  });
+});
+</script>
