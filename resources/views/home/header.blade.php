@@ -94,12 +94,26 @@
 
 
         <!-- Cart Icon -->
+       @if (Route::has('login'))
+
+       @auth
+
         <a href="{{ url('mycart') }}" class="btn btn-link text-white position-relative" style="font-size: 1.25rem;">
           <i class="fa fa-shopping-cart"></i>
           @if(isset($count) && $count > 0)
             <span class="badge badge-danger position-absolute" style="top: -5px; right: -10px;">{{ $count }}</span>
           @endif
         </a>
+        <a href="{{ url('myorder') }}" class="btn btn-link text-white position-relative" style="font-size: 1.25rem; margin-right: 8px;">
+          <i class="fa-regular fa-pen-to-square"></i>
+          @if(isset($orderss) && $orderss > 0)
+            <span class="badge badge-danger position-absolute" style="top: -5px; right: -8px;">{{ $orderss }}</span>
+          @endif
+        </a>
+
+        @endauth
+       
+       @endif
 
         <!-- Navbar Toggler -->
         <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#arkNav">
@@ -116,6 +130,21 @@
           <li class="nav-item"><a class="nav-link" href="{{ url('testimonial') }}">Testimonial</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url('contact') }}">Contact</a></li>
         </ul>
+        <!-- Mobile User Options -->
+        <div class="ark-user-options-mobile d-lg-none mt-3">
+          @if(Route::has('login'))
+            @auth
+              <form action="{{ route('logout') }}" method="post" class="mb-2">
+                @csrf
+                <button class="btn btn-outline-light btn-sm btn-block w-100">Logout</button>
+              </form>
+            @else
+              <a href="{{ url('/login') }}" class="btn btn-outline-light btn-sm btn-block w-100 mb-2">Login</a>
+              <a href="{{ url('/register') }}" class="btn btn-outline-light btn-sm btn-block w-100 mb-2">Register</a>
+            @endauth
+          @endif
+        </div>
+
 
         <!-- Right-Side Options (only on large screens) -->
         <div class="ark-user-options d-none d-lg-flex align-items-center gap-2 ml-3">
@@ -149,3 +178,19 @@
 </header>
 
 
+
+<script>
+  // Collapse navbar only when clicking nav links
+  document.addEventListener('DOMContentLoaded', function () {
+    const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function () {
+        if (navbarCollapse.classList.contains('show')) {
+          $('.navbar-collapse').collapse('hide');
+        }
+      });
+    });
+  });
+</script>
