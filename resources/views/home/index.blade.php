@@ -49,11 +49,17 @@
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="ark-product-box glass-wrapper text-center p-3">
           <img src="products/{{ $products->image }}" alt="{{ $products->title }}" class="img-fluid mb-3">
-          <h5>{{ $products->title }}</h5>
-          <p class="text-muted">₹{{ $products->price }}</p>
-          <div class="ark-btn-group d-flex justify-content-center gap-2 mt-3">
-            <a href="{{ url('product_details', $products->id) }}" class="btn btn-outline-primary btn-sm">Details</a>
-            <a href="{{ url('add_cart', $products->id) }}" class="btn btn-outline-secondary btn-sm">Add To Cart</a>
+           <div class="d-flex justify-content-center px-2" style="gap:2rem">
+            <h5 class="mb-0" style="font-weight: 600;">{{ $products->title }}</h5>
+            <span class="text-muted" style="font-size: 0.9rem;">₹{{ $products->price }}</span>
+          </div>
+         <div class="d-flex justify-content-center mt-3 px-2" style="gap:2rem">
+            <a href="{{ url('product_details', $products->id) }}" class="btn btn-sm btn-link p-0 text-primary">
+              Details <i class="fa fa-arrow-right ms-1"></i>
+            </a>
+            <a href="{{ url('add_cart', $products->id) }}" class="btn btn-sm btn-outline-secondary">
+              <i class="fa fa-cart-plus me-1"></i> Add to Cart
+            </a>
           </div>
         </div>
       </div>
@@ -383,6 +389,67 @@
   object-fit: contain;
   border-radius: 10px;
 }
+
+
+.ark-product-box a.btn-sm {
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  .ark-shop-section .ark-product-box {
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ark-shop-section .ark-product-box img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+  }
+
+  .ark-shop-section .product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 0 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .ark-shop-section .product-info h5,
+  .ark-shop-section .product-info h6 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .ark-shop-section .ark-btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0 4px;
+  }
+
+  .ark-shop-section .ark-btn-group .btn {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .ark-shop-section .btn i {
+    margin-right: 4px;
+  }
+}
+
 
   </style>
    

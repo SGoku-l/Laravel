@@ -182,20 +182,3 @@
   </div>
 </header>
 
-
-
-<script>
-  // Collapse navbar only when clicking nav links
-  document.addEventListener('DOMContentLoaded', function () {
-    const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-
-    navLinks.forEach(function(link) {
-      link.addEventListener('click', function () {
-        if (navbarCollapse.classList.contains('show')) {
-          $('.navbar-collapse').collapse('hide');
-        }
-      });
-    });
-  });
-</script>
