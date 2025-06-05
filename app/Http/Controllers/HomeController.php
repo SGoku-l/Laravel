@@ -69,10 +69,18 @@ class HomeController extends Controller
 
     public function product_details($id){
 
-        $userid = Auth::user()->id;
+        if(Auth::id()){
+
+             $userid = Auth::user()->id;
+            $orderss = Order::where('user_id',$userid)->count();
+
+        }
+        else{
+
+            $orderss = '';
+        }
         $detail = Product::find($id);
         $count = Cart::where('id',$detail)->count();
-        $orderss = Order::where('user_id',$userid)->count();
 
         return view('home.product_details',compact('detail','count','orderss'));
 
