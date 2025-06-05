@@ -29,6 +29,7 @@
   <link href="{{ asset('ecomtemp/css/style.css') }}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{{ asset('ecomtemp/css/responsive.css') }}" rel="stylesheet" />
+
 </head>
 
 <style>
@@ -73,7 +74,7 @@
 
 </style>
 
-<header class="ark-header">
+<header class="ark-header" >
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg ark-navbar align-items-center">
       <!-- Brand -->

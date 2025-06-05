@@ -50,7 +50,7 @@
         <div class="ark-product-box glass-wrapper text-center p-3">
           <img src="products/{{ $products->image }}" alt="{{ $products->title }}" class="img-fluid mb-3">
            <div class="d-flex justify-content-center px-2" style="gap:2rem">
-            <h5 class="mb-0" style="font-weight: 600;">{{ $products->title }}</h5>
+            <h6 class="mb-0" style="font-weight: 600;">{{ $products->title }}</h6>
             <span class="text-muted" style="font-size: 0.9rem;">₹{{ $products->price }}</span>
           </div>
          <div class="d-flex justify-content-center mt-3 px-2" style="gap:2rem">
