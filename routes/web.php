@@ -83,3 +83,5 @@ Route::get('why',[HomeController::class,'why']);
 Route::get('testimonial',[HomeController::class,'testimonial']);
 
 Route::get('contact',[HomeController::class,'contact']);
+
+Route::post('contact',[HomeController::class,'contact_details']);

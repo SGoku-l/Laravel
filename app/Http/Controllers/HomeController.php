@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Catagory;
+use App\Models\Contact;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -396,6 +397,21 @@ class HomeController extends Controller
         $myorder = Order::where('user_id',$userid)->paginate(3);
 
         return view('home.orders',compact('myorder','count','orderss'));
+
+    }
+
+    public function contact_details(Request $request){
+
+        $cont = new Contact();
+
+        $cont->name = $request->name;
+        $cont->email = $request->email;
+        $cont->phone = $request->phone;
+        $cont->message = $request->message;
+
+        $cont->save();
+
+        return redirect()->back();
 
     }
         

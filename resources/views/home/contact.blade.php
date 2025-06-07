@@ -21,18 +21,21 @@
       <!-- Contact Form -->
       <div class="col-lg-5 col-md-6">
         <div class="glassy-box h-100 p-4">
-          <form action="#">
+          <form action="{{ url('contact') }}" method="post">
+
+          @csrf
+
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name" />
+              <input type="text" class="form-control" placeholder="Name" name="name"/>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input type="email" class="form-control" placeholder="Email" name="email"/>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Phone" />
+              <input type="text" class="form-control" placeholder="Phone" name="phone" />
             </div>
             <div class="form-group">
-              <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+              <textarea class="form-control" rows="4" placeholder="Message" name="message"></textarea>
             </div>
             <button type="submit" class="btn btn-glass w-100 btn-primary mt-4">SEND</button>
           </form>

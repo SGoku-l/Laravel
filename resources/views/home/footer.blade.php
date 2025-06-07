@@ -21,7 +21,7 @@
         <div class="ark-glassy-box p-4 h-100">
           <h6 class="fw-bold text-uppercase">About Us</h6>
           <p class="text-white-50">
-            ARK Multi-Specialty Clinic is committed to delivering expert healthcare with compassion and dedication. Our team ensures personalized treatment using state-of-the-art facilities.
+           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolores enim laboriosam autem dignissimos veritatis at nisi dolorem sint quisquam?
           </p>
         </div>
       </div>
@@ -54,13 +54,13 @@
           <h6 class="fw-bold text-uppercase">Contact Us</h6>
           <ul class="list-unstyled text-white-50">
             <li class="mb-2">
-              <i class="fa fa-map-marker me-2 text-light"></i> 123 Health Street, Chennai, India
+              <i class="fa fa-map-marker me-2 text-light"></i> ABC Street,Hosur,India.
             </li>
             <li class="mb-2">
-              <i class="fa fa-phone me-2 text-light"></i> +91 98765 43210
+              <i class="fa fa-phone me-2 text-light"></i> +91 63819 87483
             </li>
             <li>
-              <i class="fa fa-envelope me-2 text-light"></i> contact@arkclinic.in
+              <i class="fa fa-envelope me-2 text-light"></i> abc@gmail.com
             </li>
           </ul>
         </div>
