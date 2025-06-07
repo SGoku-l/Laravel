@@ -4,14 +4,24 @@
 <section class="container-fluid py-5 ark-shop-section px-4">
   <div class="row">
     <!-- Sidebar for Categories -->
-    <div class="col-md-3 mb-4 ps-0">
+   <div class="col-md-3 mb-4 ps-0">
       <div class="ark-sidebar">
-        <h5><strong class="text-black">Categories</strong></h5>
-        <ul class="list-unstyled mt-3">
-            @foreach ($catagory as $catagories)
-            <li value="{{ $catagories->catagory_name }}"><a href="{{ url('catagory_list_find',$catagories->catagory_name ) }}">{{ $catagories->catagory_name }}</a></li>
-            @endforeach
+        <h5><strong style="color: #055160; font-weight: 700;">Categories</strong></h5>
+        
+        <ul class="list-unstyled mt-3 ark-category-list" id="categoryList">
+          @foreach ($catagory as $index => $catagories)
+            <li class="category-item {{ $index >= 8 ? 'd-none extra-category' : '' }}" value="{{ $catagories->catagory_name }}">
+              <a href="{{ url('catagory_list_find', $catagories->catagory_name) }}">{{ $catagories->catagory_name }}</a>
+            </li>
+          @endforeach
         </ul>
+
+        <!-- Show More/Less Toggle Button -->
+        <div class="text-center mt-3">
+          <button class="btn btn-sm btn-outline-light" id="toggleCategoryBtn">
+            Show More <span id="toggleIcon">▼</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -87,5 +97,20 @@
 
 
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.getElementById('toggleCategoryBtn');
+  const extraItems = document.querySelectorAll('.extra-category');
+  const icon = document.getElementById('toggleIcon');
+  let expanded = false;
+
+  toggleBtn.addEventListener('click', () => {
+    expanded = !expanded;
+    extraItems.forEach(item => item.classList.toggle('d-none'));
+    toggleBtn.innerHTML = expanded ? 'Show Less <span id="toggleIcon">▲</span>' : 'Show More <span id="toggleIcon">▼</span>';
+  });
+});
+</script>
 
 @include ('home.footer')
