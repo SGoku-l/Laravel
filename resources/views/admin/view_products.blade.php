@@ -52,7 +52,7 @@
                 <td>{{ $datas->catagory }}</td>
                 <td><img src="products/{{ $datas->image }}" alt="" height="100" width="120"></td>
                 <td><a href="{{ url('edit_productsget/'.$datas->id) }}" class="btn btn-sm btn-outline-primary">Edit</a></td>
-                <td><a href="{{ url('delete_products/'.$datas->slug) }}" class="btn btn-sm btn-outline-danger">Delete</a></td>
+                <td><a href="{{ url('delete_products/'.$datas->id) }}" class="btn btn-sm btn-outline-danger">Delete</a></td>
               </tr>
               @endforeach
             </tbody>

@@ -99,9 +99,9 @@ class AdminController extends Controller
 
     }
 
-    public function delete_products($slug){
+    public function delete_products($id){
 
-        $delete = Product::find($slug);
+        $delete = Product::find($id);
 
         $imagepath = public_path('products/'.$delete->image);
 

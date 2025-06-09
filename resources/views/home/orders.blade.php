@@ -1,6 +1,6 @@
 @include('home.header')
 
-@if($count > 0)
+@if($orderss > 0)
 <section class="ark-cart-section py-5">
   <div class="container ark-glassy-container">
     <div class="row gx-4 gy-4">

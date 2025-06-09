@@ -394,7 +394,7 @@ class HomeController extends Controller
 
         }
 
-        $myorder = Order::where('user_id',$userid)->paginate(3);
+        $myorder = Order::where('user_id',$userid)->orderBy('id', 'desc')->paginate(3);
 
         return view('home.orders',compact('myorder','count','orderss'));
 
